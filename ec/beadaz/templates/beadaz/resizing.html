@@ -1,0 +1,333 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Resizing{% endblock title %}
+
+{% block main-content %}
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts Links For Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  </head>
+  <body>
+
+    <section class="hero-section">
+      <div class="content">
+        <br>
+        <h2>Re-sizing</h2>
+        <p>
+            Your jewellery may become damaged, worn or simply lose its sparkle over time. We provide a number of jewellery repair services to restore the piece to it's former glory:
+
+            We can reset any diamonds and gemstones. If you have damaged or lost stones from your jewellery, then we can source and replace them with an exact match.
+            Jewellery requires ongoing care to keep it shining and the metals may dull slightly over time with contact from certain chemicals. We are able to clean and polish your rings and breathe new life into old or worn jewellery.
+            You may find your jewellery picks up chips and scratches with accidental knocks and should this happen, our expert craftsmen are on hand to provide full repairs such as claw re-tipping, clasp replacement, metal soldering and much more.
+        </p>
+      </div>
+    </section>
+
+    <script>
+      const header = document.querySelector("header");
+      const hamburgerBtn = document.querySelector("#hamburger-btn");
+      const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+      // Toggle mobile menu on hamburger button click
+      hamburgerBtn.addEventListener("click", () => header.classList.toggle("show-mobile-menu"));
+
+      // Close mobile menu on close button click
+      closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+    </script>
+    
+  </body>
+  <br>
+  <br>
+  <body>
+    <section class="container">
+      <header><b> Enquiry Form </b></header>
+      <br>
+      <p>For product enquiries or general questions, fill out the form below. </p>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required />
+        </div>
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" placeholder="Enter email address" required />
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter phone number" required />
+          </div>
+          <div class="input-box">
+            <label>Pickup Date</label>
+            <input type="date" placeholder="Enter pickup date" required />
+          </div>
+        </div>
+        <div class="gender-box">
+          <h3>Re-sizing Options</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-bead" name="replace" checked />
+              <label for="check-male">Rings Re-sizing</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-clasp" name="replace" />
+              <label for="check-female">Bracelets Resizing </label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="replace" />
+              <label for="check-other">Necklace Resizing</label>
+            </div>
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" placeholder="Enter street address" required />
+          <input type="text" placeholder="Enter street address line 2" required />
+          <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>Available PickUp Location</option>
+                <option>Chabahil</option>
+                <option>Kapan</option>
+                <option>Naxal</option>
+                <option>Boudha</option>
+              </select>
+            </div>
+            <input type="text" placeholder="Enter your city" required />
+          </div>
+          <div class="column">
+            <input type="text" placeholder="Description of resizing " required />
+
+            <input type="text" placeholder="Any additional details to resizing " required />
+          </div>
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>
+    <br>
+    <br>
+  </body>
+
+</html>
+
+<style>
+    /* Importing Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-section {
+  height: 100vh;
+  background-image: url("https://img.freepik.com/free-photo/creative-woman-is-holding-pliers-crystal-clear-quartz-it_613910-17314.jpg?t=st=1710435556~exp=1710439156~hmac=9bbe12855e3e50c91caeb02c37ce1a6abad7cb20740e8516f61229879b42cab8&w=996");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.hero-section .content {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  color: #fff;
+}
+
+.hero-section .content h2 {
+  font-size: 3rem;
+  max-width: 600px;
+  line-height: 70px;
+}
+
+.hero-section .content p {
+  font-weight: 300;
+  max-width: 600px;
+  margin-top: 15px;
+}
+
+.hero-section .content button {
+  background: #fff;
+  padding: 12px 30px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 6px;
+  margin-top: 38px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.hero-section .content button:hover {
+  color: #fff;
+  background: #C06B3E;
+}
+
+#close-menu-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+#hamburger-btn {
+  color: #fff;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 768px) {
+   
+  #hamburger-btn, #close-menu-btn {
+    display: block;
+  }
+
+
+  .hero-section .content {
+    text-align: center;
+  }
+
+  .hero-section .content :is(h2, p) {
+    max-width: 100%;
+  }
+
+  .hero-section .content h2 {
+    font-size: 2.3rem;
+    line-height: 60px;
+  }
+  
+  .hero-section .content button {
+    padding: 9px 18px;
+  }
+}
+
+{% comment %} body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(130, 106, 251);
+} {% endcomment %}
+.container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+.container .form {
+  margin-top: 30px;
+}
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+.input-box label {
+  color: #333;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+.form .gender-box {
+  margin-top: 20px;
+}
+.gender-box h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.form :where(.gender-option, .gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+.form .gender {
+  column-gap: 5px;
+}
+.gender input {
+  accent-color: rgb(130, 106, 251);
+}
+.form :where(.gender input, .gender label) {
+  cursor: pointer;
+}
+.gender label {
+  color: #707070;
+}
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.form button {
+  height: 55px;
+  width: 100%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(130, 106, 251);
+}
+.form button:hover {
+  background: rgb(88, 56, 250);
+}
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
+}
+</style>
+
+{% endblock main-content %}
+
+

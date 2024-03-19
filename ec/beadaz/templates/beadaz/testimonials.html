@@ -1,0 +1,165 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Testimonial{% endblock title %}
+
+{% block main-content %}
+<br> <br>
+<link rel="stylesheet" href="css/swiper-bundle.min.css" />
+<hr class="bold-hr"> 
+<hr class="bold-hr"> 
+<h2>Testimonial</h2>
+<br>
+<div class="wrapper">
+  <div class="box">
+    <i class="fas fa-quote-left quote"></i>
+    <p>Lorem aliasry ipsum dolor sits ametans, consectetur adipisicing elitits. Expedita reiciendis itaque placeat thuratu, quasi yiuos repellendus repudiandae deleniti ideas fuga molestiae, alias.</p>
+    <div class="content">
+      <div class="info">
+        <div class="name">Jennie Kim</div>
+        <div class="job">Designer | Fashoin Model</div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+      <div class="image">
+        <img src="{% static "beadaz\images\jennie.jpg" %}" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <i class="fas fa-quote-left quote"></i>
+    <p>Lorem aliasry ipsum dolor sits ametans, consectetur adipisicing elitits. Expedita reiciendis itaque placeat thuratu, quasi yiuos repellendus repudiandae deleniti ideas fuga molestiae, alias.</p>
+    <div class="content">
+      <div class="info">
+        <div class="name">Wonyoung </div>
+        <div class="job">YouTuber | Influencer</div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+      <div class="image">
+        <img src="{% static "beadaz\images\wonyoung.jpg" %}" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="box">
+    <i class="fas fa-quote-left  quote"></i>
+    <p>Lorem aliasry ipsum dolor sits ametans, consectetur adipisicing elitits. Expedita reiciendis itaque placeat thuratu, quasi yiuos repellendus repudiandae deleniti ideas fuga molestiae, alias.</p>
+    <div class="content">
+      <div class="info">
+        <div class="name">Kristina Hansohee</div>
+        <div class="job">Model | Advertiser</div>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+      <div class="image">
+        <img src="{% static "beadaz\images\hansohee.jpg" %}" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="bold-hr"> 
+<hr class="bold-hr"> 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  background: #B8CDF8;
+}
+::selection{
+  background: rgba(23,162,184,0.3);
+}
+.wrapper{
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .box{
+  background: #fff;
+  width: calc(33% - 10px);
+  padding: 25px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+.wrapper .box i.quote{
+  font-size: 20px;
+  color: #084887;
+}
+.wrapper .box .content{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.box .info .name{
+  font-weight: 600;
+  font-size: 17px;
+}
+.box .info .job{
+  font-size: 16px;
+  font-weight: 500;
+  color: #17a2b8;
+}
+.box .info .stars{
+  margin-top: 2px;
+}
+.box .info .stars i{
+  color: #17a2b8;
+}
+.box .content .image{
+  height: 75px;
+  width: 75px;
+  padding: 3px;
+  background: #17a2b8;
+  border-radius: 50%;
+}
+.content .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.box:hover .content .image img{
+  border-color: #fff;
+}
+@media (max-width: 1045px) {
+  .wrapper .box{
+    width: calc(50% - 10px);
+    margin: 10px 0;
+  }
+}
+@media (max-width: 702px) {
+  .wrapper .box{
+    width: 100%;
+  }
+}
+</style>
+  
+{% endblock main-content %}

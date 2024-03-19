@@ -1,0 +1,51 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main-content %}
+<div class =" container my-5">
+
+    {% comment %} <div class= "row">
+        <div class="col-sm-3"> 
+          <div class="list-group">
+          {% for val in title  %}
+          <a href = "{% url "category-title" val.title %}" class="list-group-item list-group-item-action" aria-current="true"> 
+            {{val.title}} </a>
+          {% endfor %}
+        </div>
+      </div> {% endcomment %}
+      <hr class="bold-hr"> 
+      <hr class="bold-hr"> 
+
+      <br>
+
+       <div class="col-sm-12"> 
+          <div class="row">
+           {% for prod in product  %}
+           <div class="col text-center mb-4">
+            <a href = "{% url "product-detail" prod.id %}" class="btn">
+              <div> 
+                <img src="{{prod.product_image.url}}" 
+                width="350px" height="370px" />
+                <div class="fw-bold">{{prod.title}} </div>
+                <div class="fw-bold text-danger">
+                  Rs.{{prod.discounted_price}}/-
+                  <small class="fw-light text-decoration-line-through">{{prod.selling_price}}</small>
+                </div> 
+              </div>
+            </a>
+          </div>
+           {% endfor %}
+          </div>
+
+        </div>
+        <hr class="bold-hr"> 
+    </div>
+
+    <style>
+      img {
+      border-radius: 30px; /* Adjust the value to change the roundness */
+      box-shadow: 0px 4px 8px rgba(5, 0, 0, 0.1); /* Adjust the values for shadow */
+      }
+    </style>
+{% endblock main-content %}

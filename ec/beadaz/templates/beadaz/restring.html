@@ -1,0 +1,43 @@
+<!-- Update your existing template or create a new one -->
+{% extends "beadaz/base.html" %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock title %}
+
+{% block banner-slider %}
+<!-- Add your banner-slider code here if needed -->
+{% endblock banner-slider %}
+
+{% block main-content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Existing content -->
+                    <!-- ... -->
+
+                    <!-- Add re-stringing service section -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h3>Stringing Service</h3>
+                            <form method="post" action="{% url 'restring_jewelry' %}">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="jewelry_type" class="form-label">Jewelry Type</label>
+                                    <input type="text" class="form-control" id="jewelry_type" name="jewelry_type" placeholder="Enter jewelry type">
+                                </div>
+                                <!-- Add other form fields as needed -->
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                            <br> <br>
+                        </div>
+                        <!-- ... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,107 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Workshops{% endblock title %}
+
+{% block main-content %}
+<hr class="bold-hr">
+<hr class="bold-hr">
+<hr class="bold-hr">
+<br>
+
+<h2 class="center-align">Beads Workshops Tutorial</h2>
+<br>
+    <div class="video-container">
+        <div class="video-box">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SnOA7PTR3bc" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>How To Make Charm Bracelets | Studio Vlog #1</h3>
+                <p>"Discover the art of crafting charm bracelets in Studio Vlog #1 as we delve into the intricacies of design and creation of charm bracelet. 
+                    "</p>
+            </div>
+        </div>
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/9MRk09IPmn4" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>Adjustable Stone Wire Ring | Studio Vlog #2</h3>
+                <p>"Discover the process of crafting an Adjustable Stone Wire Ring in Studio Vlog #2. Learn wire wrapping techniques and create stunning jewelry."</p>
+            </div>
+        </div>
+
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/jWa2yrLGxCM" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>Charms Necklace Tutorial | Studio Vlog #3</h3>
+                <p>"Explore charm necklace crafting in Studio Vlog #3. Join us for a step-by-step tutorial in creating stunning jewelry pieces."</p>
+            </div>
+        </div>
+
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/iEOqvFXmbrM" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>tutorial 🔎 how i make my keychains | Studio Vlog #4</h3>
+                <p>"Explore DIY keychain crafting in Studio Vlog #4. Learn step-by-step techniques and unleash creativity in this tutorial. Join the fun!"</p>
+            </div>
+        </div> 
+
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/sMBUakMaxI4" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>How to make easy rose bracelet | Studio Vlog #5</h3>
+                <p> "Learn to craft a charming rose bracelet effortlessly in Studio Vlog #4. Follow along for simple steps and creative inspiration."</p>
+            </div>
+        </div>
+        
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/SN-9NFyWG5Q" frameborder="0" allowfullscreen></iframe>
+            <div class="video-info">
+                <h3>Adjustable red string bracelet | sliding square knot</h3>
+                <p>
+                    "Learn to make an adjustable red string bracelet with a sliding square knot in this quick and easy tutorial!"</p>
+            </div>
+        </div>
+    </div>
+     <br>
+    
+
+
+<style>
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    .video-box {
+        width: calc(50% - 20px);
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    
+    .video-box iframe {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .video-info {
+        padding: 10px;
+    }
+    
+    .video-info h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .video-info p {
+        margin: 0;
+    }
+    .center-align {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    
+   </style>
+
+{% endblock main-content %}

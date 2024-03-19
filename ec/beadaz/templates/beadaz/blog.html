@@ -1,0 +1,138 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+
+{% block main-content %}
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Blog</title>
+ <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <h1 style = "text-align: center;"> Blog </h1>
+  <hr>
+  <div class="container">
+  <section id="wireframing">
+    <div class="container">
+      <div class="image-container" style="width: 100%; max-width: 600px;">
+        <img src="{% static "beadaz\images\forestpastel.jpg" %}" alt="Wireframing example" style="width: 100%; height: auto; border-radius: 30px;">
+      </div>
+      
+      <h2>Materials used to make a flower charm earring.</h2>
+      <br>
+      <p style="font-size: 16px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod commodo tempor incididunt ut labore et dolore magna aliqua. "</p>
+
+      <p >William Limbu • February 27, 2024</p>
+      <button id="readmore">Read More</button>
+    </div>
+  </section>
+
+  <section id="wireframing">
+    <div class="container">
+      <div class="image-container" style="width: 100%; max-width: 600px;">
+        <img src="{% static "beadaz\images\blog2.png" %}" alt="Wireframing example" style="width: 100%; height: auto; border-radius: 30px;">
+      </div>
+      
+      <h2>Tutorial to use pilers and close jump ring</h2>
+      <br>
+      <p style="font-size: 16px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod commodo tempor incididunt ut labore et dolore magna aliqua. "</p>
+
+
+      <p>William Limbu • February 27, 2024</p>
+      <button id="readmore">Read More</button>
+      {% comment %} <button id="readmore"><a href="{% url 'blogDetail' %}">Read More</a></button> {% endcomment %}
+
+    </div>
+  </section>
+
+<section id="wireframing">
+  <div class="container">
+    <div class="image-container" style="width: 100%; max-width: 600px;">
+      <img src="{% static "beadaz\images\product\summerpink choker.jpg" %}" alt="Wireframing example" style="width: 100%; height: auto; border-radius: 30px;">
+    </div>
+    
+    <h2>Details about beads & charms to make a necklace</h2>
+    <br>
+    <p style="font-size: 16px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod commodo tempor incididunt ut labore et dolore magna aliqua. "</p>
+
+    <p>William Limbu • February 27, 2024</p>
+    <button id="readmore">Read More</button>
+  </div>
+</section>
+
+</div>
+</body>
+
+
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  
+  #wireframing {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius : 30px;
+    padding: 20px;
+    {% comment %} background: linear-gradient(147deg,#BEA8AA 0%, #D4CBE5 64%); {% endcomment %}
+    border-radius: 5px;
+    flex: 0 0 calc(33.33% - 10px); /* Adjust the width as needed */
+    margin-bottom: 20px;
+  }
+  
+  #wireframing h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  #wireframing p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  #wireframing img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  #wireframing h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  #wireframing ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  #wireframing li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  #wireframing button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #wireframing button:hover {
+    background-color: #0056b3;
+  }
+</style>
+<hr>
+</html>
+{% endblock main-content %}

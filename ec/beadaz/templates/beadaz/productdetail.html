@@ -1,0 +1,62 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}ProductDetails{% endblock title %}
+
+
+{% block main-content %}
+<div class="container"> 
+ <div class="row flex justify-content-between">
+    <hr class="bold-hr"> 
+    <div class="img2 col-lg-5 mt-5">
+        <img src="{{product.product_image.url}}" class="image col-xs-6
+        col-sm-12 col-lg-12 mt-3 text-sm-center w-90 h-80" alt="">      
+    </div>
+    
+    <div class="productdetail col-lg-6">
+        <hr class="bold-hr"> 
+        <hr class="bold-hr"> 
+        <hr class="bold-hr"> 
+        <h1 style="font-family: Georgia; font-size:35px; "> {{product.title}}</h1> 
+        <h5> Rs.{{product.discounted_price}}/- </h5>
+        <small class="text-decoration-line-through text-muted fs-5"><del> Rs.{{product.selling_price}}/- </small> </del>
+        <br> <br> <h4> Product features </h4>
+        <ul class="fs-5" style="font-family:Rajdhani;">
+            <li> {{product.description}} </li>
+            <li> Composition : {{product.composition}} </li>
+            <li> Use : {{product.prodapp}}</li>
+        </ul> 
+              
+        <form action="/add-to-cart" class="d-inline">
+            <input type="hidden" name="prod_id" value="{{product.id}}" />
+            {% comment %} <button type="submit" class="custom-btn">Add to Cart</button> {% endcomment %}
+            <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
+        </form>
+        <a href="{% url "showcart" %}" class="btn btn-warning shadow px-5 py-2">Buy Now</a>
+        {% if wishlist %}
+        <a pid={{ product.id }} class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>
+        {% else %}
+        <a pid={{ product.id }} class="plus-wishlist btn btn-success shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>     
+        {% endif %}
+        <hr class="bold-hr"> 
+        </div> 
+    </div> 
+</div> 
+
+<style>
+    .img2 {
+        border: 2px solid #ccc; /* Add a 2px solid border */
+        border-radius: 20px; /* Add border radius for rounded corners */
+        padding: 20px; /* Add padding */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    }
+    
+    .image {
+        width: 100%; /* Set the image width to 100% */
+        height: auto; /* Automatically adjust the height */
+        border-radius: 20px; /* Add border radius for rounded corners */
+    }
+    
+</style>
+{% endblock main-content %}
+
+
