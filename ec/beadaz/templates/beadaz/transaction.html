@@ -1,0 +1,81 @@
+<!-- transaction_history.html -->
+
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Transaction History{% endblock title %}
+{% block main-content %}
+<div class="container mt-5">
+    <br>
+    <br>
+    <br>
+    <h2>Transaction History</h2>
+    <br>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                {% comment %} <th scope="col">Transaction ID</th> {% endcomment %}
+                <th scope="col">Amount</th>
+                <th scope="col">Payment Method</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                {% comment %} <td>{{ transaction.transaction_id }}</td> {% endcomment %}
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.get_payment_method_display }}</td>
+                <td>{{ transaction.get_status_display }}</td>
+                <td>{{ transaction.created_at }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No transactions found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
+</div>
+
+<style>
+    /* Add this CSS code to your existing CSS file or create a new one */
+
+/* Style the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style table header */
+.table th {
+    background-color: #92BCEA;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style table rows */
+.table td {
+    padding: 8px;
+}
+
+/* Add zebra-striping to the table rows */
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Style the table header cells in the first row */
+.table thead th {
+    border-bottom: 2px solid #ddd;
+}
+
+/* Add hover effect to table rows */
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+</style>
+{% endblock main-content %}

@@ -1,0 +1,127 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Cash on Delivery{% endblock title %}
+
+{% block main-content %}
+<br>
+<br>
+<br>
+<div class="container">
+    <h1>Cash on Delivery</h1>
+    <p>Please fill out the form below to place your order with Cash on Delivery.</p>
+
+    <div class="custom-form mt-5">
+        <h3 class="text-center mb-4">COD </h3>
+        <form id="cod-form" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                <small class="text-danger">{{ field.errors|striptags }}</small>
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary btn-block mt-4">Place Order</button>
+        </form>
+    </div>
+
+    {% comment %} <div id="confirmation" style="display: none;">
+        <h2>Thank you for your order!</h2>
+        <p>We have received your order details. We will contact you shortly for confirmation.</p>
+    </div> {% endcomment %}
+</div>
+
+<style>
+   /* styles.css */
+
+   .container {
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.custom-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+.custom-form-container {
+    max-width: 600px; /* Set maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding to the container */
+}
+
+.custom-form form {
+    margin-top: 20px;
+}
+
+.custom-form .form-group {
+    margin-bottom: 20px;
+}
+
+.custom-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.custom-form input[type="text"],
+.custom-form input[type="email"],
+.custom-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.custom-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.custom-form .btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.custom-form .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.custom-form .text-danger {
+    font-size: 80%;
+}
+
+
+    
+</style>
+{% comment %} <script>
+ // script.js
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.getElementById("cod-form");
+    var confirmation = document.getElementById("confirmation");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Hide the form
+        form.style.display = "none";
+
+        // Display the confirmation message
+        confirmation.style.display = "block";
+    });
+});
+
+
+</script> {% endcomment %}
+{% endblock main-content %}

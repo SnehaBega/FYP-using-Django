@@ -1,0 +1,111 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+
+{% block title %}Terms & condition {% endblock title %}
+
+{% block main-content %}
+<br>
+<br>
+ <div class="container">
+    <h1>Terms and Conditions</h1>
+    <br>
+    <div class="content">
+      <p class="text-justified">Welcome to Beadazzle! These terms and conditions outline the rules and regulations for the use of our website.</p>
+      
+      <h5>1. Intellectual Property Rights</h5>
+      <p class="text-justified">All content and materials available on our website, including but not limited to text, graphics, logos, button icons, 
+        images, audio clips, digital downloads, and data compilations, are the property of Beadazzle and are protected by intellectual property laws.
+      </p>
+      
+      <h5>2. User Content</h5>
+      <p class="text-justified">By posting, submitting, or transmitting any user content, including but not limited to reviews, comments, photos, or other materials, you grant Beadazzle a worldwide, non-exclusive, royalty-free, transferable license to use, reproduce, distribute, prepare derivative works of, display, and perform the user content in connection with the Beadazzle website and its business operations.</p>
+      
+      <h5>3. Disclaimer</h5>
+      <p class="text-justified">The materials on our website are provided on an 'as is' basis. Beadazzle makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties.</p>
+      
+      <h5>4. Product Information</h5>
+      <p class="text-justified">We strive to provide accurate and up-to-date information about our products, including descriptions, prices, and availability. However, we do not warrant that product descriptions or other content on our website are accurate, complete, reliable, current, or error-free.
+      </p>
+      
+      <h5>5. Ordering and payment</h5>
+      <p class="text-justified">By placing an order on our website, you agree to provide accurate and complete information about yourself, including your billing address, shipping address, and payment details. You represent and warrant that you have the legal right to use any payment method(s) provided in connection with your order. All orders are subject to acceptance and availability, and we reserve the right to refuse or cancel any order for any reason at any time.</p>
+
+      <h5>6. Returns and Exchanges </h5>
+      <p class="text-justified">We want you to be completely satisfied with your purchase. If for any reason you are not satisfied, you may return or exchange eligible items within [number] days of purchase, subject to our return and exchange policy. </p>
+    </div>
+    <br> 
+    <div class="agree-checkbox">
+      <input type="checkbox" id="agree" required>
+      <label for="agree">I agree to the terms and conditions</label>
+    </div>
+    <button id="acceptButton">Accept</button>
+  </div> 
+
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .text-justified {
+        text-align: justify;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+      
+      .content {
+        margin-bottom: 20px;
+      }
+      
+      .agree-checkbox {
+        margin-bottom: 20px;
+      }
+      
+      p{
+        
+      }
+      button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #0056b3;
+      }
+      
+</style>
+
+<script>
+    document.getElementById('acceptButton').addEventListener('click', function() {
+        if (document.getElementById('agree').checked) {
+          alert('Terms and conditions accepted!');
+        } else {
+          alert('Please accept the terms and conditions.');
+        }
+      });
+      
+</script>
+
+{% endblock main-content %}
+
+
+

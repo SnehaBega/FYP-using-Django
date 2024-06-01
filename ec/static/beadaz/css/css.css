@@ -1,0 +1,597 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;;
+}
+.navLogo img {
+    width: 150px; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+/* ===== Colours ===== */
+:root{
+    --body-color: #E4E9F7;
+    /* --nav-color: #798fce; */
+    --nav-color: #140B5C;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+body{
+    height: 100vh;
+    /* background-color: var(--body-color); */
+    background-color: #6c9ee9bb; /* Change to the desired color */
+}
+
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+}
+
+
+body.dark nav{
+    border: 1px solid #393838;
+
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .nav-bar .logo a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: auto;
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBox{
+    position: relative;
+}
+
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 55px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    /* background-color: var(--search-bar); */
+    background-color: var(--nav-color);
+    
+}
+
+body.dark .search-field input{
+    color: var(--text-color);
+}
+
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+@media (max-width: 790px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+}
+/* Dropdown Container */
+.dropdown {
+    position: fixed;
+    display: inline-block;
+  }
+  
+  /* Dropdown Button */
+  .dropdown .dropdown-toggle {
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #140B5C;
+    padding: 8px 16px;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown .dropdown-toggle:hover {
+    background-color: #798fce;
+  }
+  
+  /* Dropdown Content */
+  .dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropdown-toggle {
+    background-color: #425faf;
+  }
+  
+  /* Dropdown Item */
+  .dropdown-item {
+    color: rgb(0, 0, 0);
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #d2d2d2;
+  }
+
+  .dropdown-content .dropdown-item {
+    color: #333; /* Change to your desired default color */
+    transition: color 0.3s; /* Add a smooth transition effect */
+}
+
+.dropdown-content .dropdown-item:hover {
+    color: rgb(15, 182, 24); /* Change to your desired color on hover */
+}
+
+/* product.css */
+.similar-products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Adjusted to distribute space evenly, including at the start and end */
+  margin-top: 20px;
+  margin-left: 20px; /* Small space at the left side */
+  margin-right: 20px; /* Small space at the right side */
+}
+
+  
+  .similar-product-card {
+    width: 31%;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .similar-product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .similar-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .similar-product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .similar-product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f00;
+    margin-bottom: 5px;
+  }
+  
+  .similar-product-rating {
+    font-size: 16px;
+    color: #f00;
+    margin-bottom: 10px;
+  }
+  
+  .similar-product-button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0a3776;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .similar-product-button:hover {
+    background-color: #10a522;
+  }
+
+    .similar-products-title {
+        text-align: center;
+    }
+
+/* //product container */
+.product-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.product-header {
+  margin-bottom: 50px;
+}
+
+.product-header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.product-header p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.product-features {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  max-width: 1000px; 
+  max-height: 800px;
+  /* padding-right: 3px; */
+  padding-left: 4px;
+}
+
+.feature-container {
+  flex-basis: 48%;
+  background-color: #879eddbd;
+  padding: 30px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.feature-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-container h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.feature-container img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.feature-container p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.feature-container button {
+  background-color: #104395;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.feature-container button:hover {
+  background-color: #3e8e41;
+}
+
+.product-description {
+  margin-bottom: 50px;
+}
+
+.product-description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.product-description p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.bold-hr {
+  border-top: 3px solid black; /* Adjust thickness and color as needed */
+}
+
+/* product details page css */
+.custom-btn {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(255, 132, 0); /* Change the button color */
+  border: none;
+  border-radius: 4px;
+  margin: 4px 2px;
+  transition: background-color 0.3s;
+}
+
+.custom-btn:hover {
+  background-color: #c00; /* Change the button color on hover */
+}
+
+/* wishlist badge colour  */
+.badge {
+  background-color: #dc3545; /* Red background color */
+  color: white; /* Text color */
+  padding: 5px 10px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* search button  */
+.custom-search-form {
+  display: flex;
+  align-items: center;
+}
+.custom-search-form .search-input {
+  color: white; /* Set text color to white */
+  font-weight: bold; /* Set text to bold */
+}
+
+
+/* .search-input {
+  flex: 1;
+  padding: 10px;  Increased padding for a bigger input box 
+  border: 1px solid #8a2be2;  Light purple border color 
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
+  background-color: var(--nav-color);
+  color: #333; /* Text color 
+} */
+
+.search-button {
+  background-color: #f0e6fd; /* Light purple background color */
+  border: 1px solid #c6bfcd; /* Light purple border color */
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 15px; /* Adjusted padding */
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #d8c7f8; /* Darker shade of purple on hover */
+}
+
+.search-button i {
+  color: #ffffff; /* Text color */
+}
+
+/* Optional: Adjust the styles of the search icon */
+.search-button i {
+  font-size: 18px;
+}

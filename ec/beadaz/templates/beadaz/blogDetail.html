@@ -5,17 +5,15 @@
 {% block main-content %}
   <section class="about-us">
     <div class="about">
-      <!--<img src="girl.png" class="pic">-->
       <div class="text">
-        <h2>About Us</h2>
-        <h5>Front-end Developer & <span>Designer</span></h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti!</p>
-        <div class="data">
-        <a href="#" class="hire">Hire Me</a>
-        </div>
+        <h4><b>Materials used to make a flower & <span>charm earring</span></b></h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti! amet, consectetur adipisi ad sed harum itaque ullam enim quas, veniam accusantium, quia animi id eos adipisci iusto molestias asperiores explicabo cum vero atque amet corporis! Soluta illum facere consequuntur magni. Ullam dolorem repudiandae cumque voluptate consequatur consectetur, eos provident necessitatibus reiciendis corrupti! amet, consectetur adipisicing elit. Expedita natus ad sed harum itaque ullam enim quas, veniam accusantium, </p>
+      </div>
+      <div class="image-container">
+        <img src="{% static "beadaz\images\forestpastel.jpg" %}" alt="Wireframing example">
       </div>
     </div>
-  </section>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 *{
@@ -67,19 +65,7 @@ span{
 .data{
   margin-top: 30px;
 }
-.hire{
-  font-size: 18px;
-  background: #4070f4;
-  color: #fff;
-  text-decoration: none;
-  border: none;
-  padding: 8px 25px;
-  border-radius: 6px;
-  transition: 0.5s;
-}
-.hire:hover{
-  background: #000;
-  border: 1px solid #4070f4;
-}
   </style>
+</div>
+</section>
 {% endblock main-content %}

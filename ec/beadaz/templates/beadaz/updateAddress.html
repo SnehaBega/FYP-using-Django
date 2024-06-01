@@ -5,12 +5,10 @@
 
 {% block main-content %}
  
-<div class="container my-5">
+<div class="container-fluid my-5"> <!-- Change container to container-fluid -->
+    <br>
         <div class="row">
-        <hr class="bold-hr">
-        <hr class="bold-hr"> 
-        <hr class="bold-hr">
-    <div class="row">
+            <div class="row">
         <div class="col-md-12">
             <h3>Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
         </div>
@@ -45,4 +43,70 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<style>
+    .container-fluid {
+        background-color: #f8f9fa; /* Set background color */
+        padding: 20px; /* Add padding */
+        border-radius: 10px; /* Add border radius */
+    }
+    
+    .bold-hr {
+        border-top: 2px solid #343a40; /* Add border style */
+        margin-top: 15px; /* Add margin */
+    }
+    
+    h3 {
+        color: #343a40; /* Set text color */
+    }
+    
+    form label {
+        font-weight: bold; /* Make labels bold */
+        color: #343a40; /* Set label text color */
+    }
+    
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="number"],
+    form textarea {
+        width: 100%; /* Set input width */
+        padding: 10px; /* Add padding */
+        margin-top: 5px; /* Add margin */
+        border: 1px solid #ced4da; /* Add border */
+        border-radius: 5px; /* Add border radius */
+    }
+    
+    form .text-danger {
+        color: #dc3545; /* Set error text color */
+    }
+    
+    .btn-primary {
+        background-color: #007bff; /* Set primary button background color */
+        color: #fff; /* Set primary button text color */
+        border: none; /* Remove button border */
+        padding: 10px 20px; /* Add padding */
+        margin-top: 10px; /* Add margin */
+        border-radius: 5px; /* Add border radius */
+        cursor: pointer; /* Add cursor pointer */
+    }
+    
+    .btn-danger {
+        background-color: #dc3545; /* Set danger button background color */
+        color: #fff; /* Set danger button text color */
+        border: none; /* Remove button border */
+        padding: 10px 20px; /* Add padding */
+        margin-top: 10px; /* Add margin */
+        border-radius: 5px; /* Add border radius */
+        cursor: pointer; /* Add cursor pointer */
+    }
+    
+    .btn-primary:hover,
+    .btn-danger:hover {
+        opacity: 0.8; /* Reduce opacity on hover */
+    }
+    
+</style>
+
 {% endblock main-content %}

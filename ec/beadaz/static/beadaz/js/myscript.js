@@ -37,9 +37,6 @@ body.addEventListener("click" , e =>{
 });
 
 
-
-
-
 $('#slider1, #slider2, #slider3').owlCarousel({
     loop: true,
     margin: 20,
@@ -67,7 +64,7 @@ $('#slider1, #slider2, #slider3').owlCarousel({
 $('.plus-cart').click(function(){
     var id=$(this).attr("pid").toString();
     var eml=this.parentNode.children[2] 
-    console.log("pid=",id)
+    console.log("pid =",id)
     $.ajax({
         type:"GET",
         url: "/pluscart",

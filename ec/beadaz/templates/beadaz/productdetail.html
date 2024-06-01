@@ -1,62 +1,207 @@
 {% extends "beadaz/base.html" %}
+{% comment %} {% load humanize %} {% endcomment %}
 {% load static %}
 {% block title %}ProductDetails{% endblock title %}
 
-
 {% block main-content %}
 <div class="container"> 
- <div class="row flex justify-content-between">
-    <hr class="bold-hr"> 
-    <div class="img2 col-lg-5 mt-5">
-        <img src="{{product.product_image.url}}" class="image col-xs-6
-        col-sm-12 col-lg-12 mt-3 text-sm-center w-90 h-80" alt="">      
-    </div>
-    
-    <div class="productdetail col-lg-6">
-        <hr class="bold-hr"> 
-        <hr class="bold-hr"> 
-        <hr class="bold-hr"> 
-        <h1 style="font-family: Georgia; font-size:35px; "> {{product.title}}</h1> 
-        <h5> Rs.{{product.discounted_price}}/- </h5>
-        <small class="text-decoration-line-through text-muted fs-5"><del> Rs.{{product.selling_price}}/- </small> </del>
-        <br> <br> <h4> Product features </h4>
-        <ul class="fs-5" style="font-family:Rajdhani;">
-            <li> {{product.description}} </li>
-            <li> Composition : {{product.composition}} </li>
-            <li> Use : {{product.prodapp}}</li>
-        </ul> 
+    <div class="row justify-content-between">
+        <div class="mg2 col-lg-5 mt-5">
+            <div class="img2 mt-5">
+                <img src="{{product.product_image.url}}" class="image" alt="">
+            </div>
+            <br>
+           </div>
+        
+        <div class="productdetail col-lg-6">
+        <br>
+        <br>
+        <br>
+        <br>
+
+            <h1 style="font-family: Georgia; font-size:35px;">{{product.title}}</h1> 
+            <h5>Rs.{{product.discounted_price}}/-</h5>
+            <small class="text-decoration-line-through text-muted fs-5"><del> Rs.{{product.selling_price}}/- </del></small>
+            <br><br><h4>Product features</h4>
+            <ul class="fs-5" style="font-family:Rajdhani;">
+                <li>{{product.description}}</li>
+                <li>Composition: {{product.composition}}</li>
+                <li>Use: {{product.prodapp}}</li>
+            </ul> 
               
-        <form action="/add-to-cart" class="d-inline">
-            <input type="hidden" name="prod_id" value="{{product.id}}" />
-            {% comment %} <button type="submit" class="custom-btn">Add to Cart</button> {% endcomment %}
-            <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
-        </form>
-        <a href="{% url "showcart" %}" class="btn btn-warning shadow px-5 py-2">Buy Now</a>
-        {% if wishlist %}
-        <a pid={{ product.id }} class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>
-        {% else %}
-        <a pid={{ product.id }} class="plus-wishlist btn btn-success shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>     
-        {% endif %}
-        <hr class="bold-hr"> 
+            <form action="/add-to-cart" class="d-inline">
+                <input type="hidden" name="prod_id" value="{{product.id}}" />
+                <button type="submit" class="btn btn-primary shadow px-5 py-2">Add to Cart</button>
+            </form>
+            <a href="{% url "showcart" %}" class="btn btn-warning shadow px-5 py-2">Check Cart</a>
+            {% if wishlist %}
+            <a pid={{ product.id }} class="minus-wishlist btn btn-danger shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>
+            {% else %}
+            <a pid={{ product.id }} class="plus-wishlist btn btn-success shadow px-5 py-2 ms-4"><i class="fas fa-heart fa-lg"></i></a>     
+            {% endif %}
+            {% comment %} <hr class="bold-hr">  {% endcomment %}
         </div> 
-    </div> 
-</div> 
+    </div>
+</div>
+{% comment %} <hr class="bold-hr">  {% endcomment %}
+
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <!-- Left Column: Review Form -->
+        <div class="col-md-6">
+            <div class="review-container shadow p-3 mb-5 bg-white rounded">
+                <h4>Product Review</h4>
+                <form id="ReviewForm" action="#" method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        <small class="text-danger">{{ field.errors|striptags }}</small>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary btn-block mt-4"> Submit</button>
+                </form>
+
+                {% comment %} <form id="ReviewForm" action="#" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_comment">Comment:</label>
+                        {{ form.comment }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_rate">Rate:</label>
+                        {{ form.rate }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </form> {% endcomment %}
+            </div>
+        </div>
+        <!-- Right Column: Displayed Reviews -->
+        <div class="col-md-6">
+            <div class="review-container shadow p-3 mb-5 bg-white rounded">
+                <h4>Latest Reviews</h4>
+                {% for review in reviews %}
+                    <div class="review">
+                        <p><strong>{{ review.user }}</strong> - {{ review.created_at }}</p>
+                        <p>{{ review.comment }}</p>
+                        <p>Rating: {{ review.rate }}</p>
+                    </div>
+                {% empty %}
+                    <p>No reviews yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+        
+    </div>
+</div>
+
 
 <style>
+    /* Product Review Container */
+.review-container {
+    margin-bottom: 20px;
+}
+
+/* Form Group */
+.review-container .form-group {
+    margin-bottom: 15px;
+}
+
+/* Submit Button */
+.review-container button[type="submit"] {
+    display: block;
+    width: 100%;
+}
+
+/* Review */
+.review-container .review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.review-container .review p {
+    margin: 5px 0;
+}
+
+/* Arrange Fields */
+.review-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.review-container input[type="number"],
+.review-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.review-container .rate-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-container .rate-field label {
+    margin-right: 10px;
+}
+
+.review-container .rate-field input[type="number"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.review-container .rate-field .rate-description {
+    font-size: 14px;
+    color: #666;
+}
+
+
     .img2 {
-        border: 2px solid #ccc; /* Add a 2px solid border */
-        border-radius: 20px; /* Add border radius for rounded corners */
-        padding: 20px; /* Add padding */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     
     .image {
-        width: 100%; /* Set the image width to 100% */
-        height: auto; /* Automatically adjust the height */
-        border-radius: 20px; /* Add border radius for rounded corners */
+        max-width: 100%;
+        max-height: auto;
+        object-fit: cover;
+        border-radius: 20px;
+    }
+    
+    .review-container {
+        margin-bottom: 20px;
+    }
+    
+    .review-container .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .review-container button[type="submit"] {
+        display: block;
+        width: 100%;
+    }
+    
+    .review-container .review {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .review-container .review p {
+        margin: 5px 0;
     }
     
 </style>
 {% endblock main-content %}
-
 

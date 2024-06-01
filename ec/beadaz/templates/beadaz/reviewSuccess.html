@@ -1,0 +1,32 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Review Success{% endblock title %}
+
+{% block main-content %}
+<br>
+<br>
+<br>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h4 class="card-title mb-4">Your review has been successfully submitted</h4>
+
+                    <div class="alert alert-primary mt-4" role="alert">
+                        <h4 class="alert-heading">Thank You!</h4>
+                        <p>Thank you for your review. Your feedback is incredibly valuable to us and helps us improve our products and services.</p>
+                        <p class="mb-0">We truly appreciate you taking the time to share your thoughts with us.</p>
+                        <br>
+                        <br>
+                    </div>
+                    {% comment %} <a href="{% url 'home' %}" class="btn btn-primary mt-4">Go Back Home</a> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+{% endblock main-content %}
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+</head>
+<body>
+    <h1>Select Payment Option</h1>
+    <form action="{% url 'process_payment' %}" method="post">
+        {% csrf_token %}
+        <input type="radio" id="cod" name="payment_option" value="COD">
+        <label for="cod">Cash on Delivery (COD)</label><br>
+        <input type="radio" id="khalti" name="payment_option" value="Khalti">
+        <label for="khalti">Khalti</label><br>
+        <button type="submit">Proceed to Pay</button>
+    </form>
+</body>
+</html>

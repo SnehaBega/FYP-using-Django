@@ -1,6 +1,6 @@
 {% extends "beadaz/base.html" %}
 {% load static %}
-{% block title %}Login{% endblock title %}
+{% block title %}Blog{% endblock title %}
 
 {% block main-content %}
 <!DOCTYPE html>
@@ -10,6 +10,7 @@
  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+  <br>
   <br>
   <br>
   <br>
@@ -27,7 +28,9 @@
       <p style="font-size: 16px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod commodo tempor incididunt ut labore et dolore magna aliqua. "</p>
 
       <p >William Limbu • February 27, 2024</p>
-      <button id="readmore">Read More</button>
+      <button id="readmore">
+        <a href="{% url "blogDetail" %}">Read More</a>
+      </button>
     </div>
   </section>
 
@@ -43,16 +46,16 @@
 
 
       <p>William Limbu • February 27, 2024</p>
-      <button id="readmore">Read More</button>
-      {% comment %} <button id="readmore"><a href="{% url 'blogDetail' %}">Read More</a></button> {% endcomment %}
-
+      <button id="readmore">
+        <a href="{% url "blogDetail" %}">Read More</a>
+      </button>
     </div>
   </section>
 
 <section id="wireframing">
   <div class="container">
     <div class="image-container" style="width: 100%; max-width: 600px;">
-      <img src="{% static "beadaz\images\product\summerpink choker.jpg" %}" alt="Wireframing example" style="width: 100%; height: auto; border-radius: 30px;">
+      <img src="{% static "beadaz\images\product\summerpink choker.jpg" %}" alt="Wireframing example" class="card-img-top" style="width: 100%; height: auto; border-radius: 30px;">
     </div>
     
     <h2>Details about beads & charms to make a necklace</h2>
@@ -60,7 +63,9 @@
     <p style="font-size: 16px; text-align: justify;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod commodo tempor incididunt ut labore et dolore magna aliqua. "</p>
 
     <p>William Limbu • February 27, 2024</p>
-    <button id="readmore">Read More</button>
+    <button id="readmore">
+      <a href="{% url "blogDetail" %}">Read More</a>
+    </button>
   </div>
 </section>
 
@@ -76,6 +81,10 @@
     justify-content: space-between;
   }
   
+  #readmore a {
+  color: white;
+  text-decoration: none; /* Optional: remove underline */
+}
   
   #wireframing {
     width: 100%;

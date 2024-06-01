@@ -1,0 +1,35 @@
+{% extends "beadaz/base.html" %}
+{% load static %}
+{% block title %}Response submitted{% endblock title %}
+
+{% block main-content %}
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Your response was submitted!</h4>
+        <p>We will get back to you soon. 
+            <br>
+            If you have any concerns, please contact us at 111.</p>
+    </div>
+</div>
+
+<style>
+
+/* Center the container vertically */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Adjust as needed */
+}
+
+/* Style the success alert */
+.alert-success {
+    max-width: 1000px; /* Adjust as needed */
+}
+
+</style>
+{% endblock main-content %}

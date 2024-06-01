@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'beadaz',
+    # 'django.contrib.humanize'
 ]
 
 MIDDLEWARE = [
@@ -77,16 +79,21 @@ WSGI_APPLICATION = 'ec.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME' : 'beadazzle',
-        # 'USER' : 'user1',
-        # 'PASSWORD' : 'user1@123',
-        # 'HOST' : 'localhost',
-        # 'PORT' : ''
-        
+        'NAME': BASE_DIR / 'db.sqlite3',      
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME' : 'Beadazzle',
+#         'USER' : 'postgres',
+#         'PASSWORD' : '1234',
+#         'HOST' : 'localhost',
+#         'PORT' : '5432'     
+#     }
+# }
+
 
 
 # Password validation
@@ -124,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/'static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'
 LOGIN_REDIRECT_URL = '/home/'
@@ -133,4 +141,93 @@ LOGIN_REDIRECT_URL = '/home/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Beadazzle Admin",
+    # Logo to use for your site, must be present in static files, used for brand on top left
+    # "site_logo": "beadaz/images/_Jewelry_Beauty_Necklace_Logo-removebg-preview.png",
+    
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to the Beadazzle Shop",
+    "copyright": "Beadazzle.Sh",
+    "search_model": ["auth.User", "auth.Group"],
+    
+    "user_avatar": None,
+
+    ############
+    # Top Menu #
+    ############
+
+    # Links to put along the top menu
+    "topmenu_links": [
+
+        # Url that gets reversed (Permissions can be added)
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+
+        # external url that opens in a new window (Permissions can be added)
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+
+        # model admin to link to (Permissions checked against model)
+        {"model": "auth.User"},
+    ],
+        # Additional links to include in the user menu on the top right ("app" url type is not allowed)
+    "usermenu_links": [
+        {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True, "icon": "fas fa-phone-alt"},
+        {"model": "auth.user"},
+    ],
+     "show_sidebar": True,
+     "navigation_expanded": True,
+     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
+    "order_with_respect_to": ["Beadaz.product", "Beadaz.payment", "Beadaz.customization"],
+    
+        "custom_links": {
+        "auth": [{
+            "name": "New Messages !!", 
+            "url": "make_messages", 
+            "icon": "fas fa-comments",
+            "permissions": ["books.view_book"]
+        }]
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+     "show_ui_builder": True,
+
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-dark",
+    "accent": "accent-primary",
+    "navbar": "navbar-navy navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-dark-navy",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": True,
+    "theme": "simplex",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    },
+    "actions_sticky_top": False
+}
+
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+KHALTI_SECRET_KEY = "09f7ff897e154ce8a1cb821d26584679"
+
+KHALTI_VERIFY_URL = "https://khalti.com/api/v2/payment/verify/"

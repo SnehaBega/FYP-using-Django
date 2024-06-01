@@ -24,7 +24,7 @@
             padding: 0;
         }
         #jewelry-section {
-            background: linear-gradient(147deg,#E8EEF2 0%, #D6C9C9 74%);
+            background: linear-gradient(147deg,#EBEBD3 0%, #E6E6EA 50%);
             padding: 20px;
             text-align: center;
             margin-bottom: 20px;
@@ -98,10 +98,16 @@
         <button id="get-in-touch-btn">GET IN TOUCH</button>
     </div>
 
+    
     <div class="container">
-        <h1>Beads Accessories Repair Service</h1>
-        <p>If you have any damaged beads accessories, we're here to help! Please fill out the form below to request a repair service.</p>
-        <form id="repairForm" action="#" method="post">
+      <h1>Beads Accessories Repair Service</h1>
+      <p>If you have any damaged beads accessories, we're here to help! Please fill out the form below to request a repair service.</p>
+      <form id="repairForm" action="#" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit Request</button>
+      </form>
+        {% comment %} <form id="repairForm" action="#" method="post">
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Your Email:</label>
@@ -113,15 +119,11 @@
             <label for="description">Description of Damage:</label>
             <textarea id="description" name="description" required></textarea>
             <button type="submit">Submit Request</button>
-        </form>
+        </form> {% endcomment %}
     </div>
 
     <script>
-        document.getElementById("repairForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form submission
-            alert("Your repair request has been submitted successfully. We will get back to you soon!"); // Display confirmation message
-            // You can add further actions here, such as sending the form data to a server via AJAX
-        });
+
         const getInTouchBtn = document.getElementById('get-in-touch-btn');
 
 getInTouchBtn.addEventListener('click', () => {

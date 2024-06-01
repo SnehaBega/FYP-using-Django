@@ -1,14 +1,16 @@
 from django.urls import path
 from django.contrib import admin
-from . import views
+from . import views 
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_view
 from .forms import LoginForm
 from .forms import MyPasswordResetForm, MyPasswordChangeForm, MySetPasswordForm
-
+from django.http import HttpResponse
+from django.urls import path
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path("", views.home, name="home"),
     path("home/", views.home, name="home"),
     path('about/', views.about,name="about"),
@@ -18,23 +20,29 @@ urlpatterns = [
     path("product-detail/<int:pk>", views.ProductDetail.as_view(), name="product-detail"),
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('address/', views.address, name='address'),
+    path('cash-on-delivery/', views.COD, name='cash-on-delivery'),
     path('updateAddress/<int:pk>', views.updateAddress.as_view(), name='updateAddress'),
     
     path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
     path('cart/', views.show_cart, name='showcart'),
     path('checkout/', views.checkout.as_view(), name='checkout'),
+    
+    path('order/', views.orders, name="orders"),
+    path('order-history/', views.OrderHistory.as_view(), name='order-history'),
+    path('subscribe/', views.subscribe, name='subscribe'),
+    # path('cartcheckout/', views.cart, name="cart"),
+    path('terms/', views.Terms, name='terms'),
     # path('paymentdone/', views.payment-done, name='paymentdone'),
-    # path('orders/', views.orders, name='orders'),
     path('search/', views.search , name='search'),
     path('workshops/', views.workshops, name='workshops'),  # Define URL for workshops page
-    path('repair/', views.repair, name='repair'),  # Define URL for workshops page
-    path('replacement/', views.replacement, name='replacement'),  # Define URL for workshops page  
-    path('resizing/', views.resizing, name='resizing'),  # Define URL for workshops page  resizing
+    path('repair/', views.repair_form, name='repair'),  # Define URL for workshops page
+    path('replacement/', views.replacement_form, name='replacement'),  # Define URL for workshops page
+    path('resizing/', views.resizing_form, name='resizing'),  # Define URL for workshops page  resizing
     
     
 
     path('blog/', views.blog, name='blog'),  # Define URL for workshops page
-    path('blog/', views.blogDetail, name='blogDetail'),
+    path('blogDetail/', views.blogDetail, name='blogDetail'),
     path ('forms/', views.forms, name="forms"),
         
     #for customization of forms
@@ -47,6 +55,7 @@ urlpatterns = [
     path('minuswishlist/', views.minus_wishlist),   
                
     path('testimonials/', views.testimonials, name='testimonials'),
+    path('wishlist/', views.wishlist, name='wishlist'),
     
     #login authentication
     path("registration/", views.CustomerRegistrationView.as_view(), name='customerregistration'),
@@ -68,8 +77,15 @@ urlpatterns = [
     form_class= MySetPasswordForm), name='password_reset_confirm'),
     path('password-reset-complete/', auth_view.PasswordResetCompleteView.as_view(template_name='beadaz/password_reset_complete.html')
     , name='password_reset_complete'),
-    
-   
+
+    path("pay/", views.payment_initiate, name="initiate"),
+    path('add/<int:product_id>/', views.add_review, name='add_review'),
+    path("verify/", views.verifyKhalti, name="verify-khalti"),
+    path("success/", views.success, name="success"),
+    path("reviewSuccess/", views.success, name="reviewSuccess"),
+    path('transaction_history/', views.transaction_history, name='transaction_history'),
+    path("CodNoti/", views.CodNoti, name="codnoti"),
+       
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "Beadazzle Shop"
